@@ -6,11 +6,13 @@
       "Effect": "Allow",
       "Action": [
         "kms:Decrypt",
-        "secretsmanager:GetSecretValue"
+        "secretsmanager:GetSecretValue",
+        "ssm:GetParameters"
       ],
       "Resource": [
         "arn:aws:kms:${region}:${account_id}:key/salsify/gifmachine/*",
-        "arn:aws:secretsmanager:${region}:${account_id}:secret:salsify/gifmachine/*"
+        "arn:aws:secretsmanager:${region}:${account_id}:secret:salsify/gifmachine/*",
+        "arn:aws:ssm:${region}:${account_id}:parameter/salsify/gifmachine/*"
       ]
     }
   ]

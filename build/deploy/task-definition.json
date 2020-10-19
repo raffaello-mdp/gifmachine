@@ -28,11 +28,11 @@
       "secrets": [
         {
           "name": "DATABASE_URL",
-          "valueFrom": "arn:aws:ssm:eu-west-1:332472329462:salsify/gifmachine/databaseurl"
+          "valueFrom": "arn:aws:ssm:eu-west-1:332472329462:parameter/salsify/gifmachine/databaseurl"
         },
         {
           "name": "GIFMACHINE_PASSWORD",
-          "valueFrom": "arn:aws:ssm:eu-west-1:332472329462:salsify/gifmachine/apipassword"
+          "valueFrom": "arn:aws:ssm:eu-west-1:332472329462:parameter/salsify/gifmachine/apipassword"
         }
       ],
       "logConfiguration": {

@@ -82,6 +82,14 @@
         "ecr:GetRepositoryPolicy"
       ],
       "Resource": "*"
+    },
+    {
+      "Sid": "IAMActions",
+      "Effect": "Allow",
+      "Action": [
+        "iam:PassRole"
+      ],
+      "Resource": "*"
     }
   ]
 }
