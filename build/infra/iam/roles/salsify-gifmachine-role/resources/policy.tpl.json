@@ -2,7 +2,7 @@
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "VisualEditor0",
+      "Sid": "ParametersPermissions",
       "Effect": "Allow",
       "Action": [
         "kms:Decrypt",
@@ -14,6 +14,34 @@
         "arn:aws:secretsmanager:${region}:${account_id}:secret:salsify/gifmachine/*",
         "arn:aws:ssm:${region}:${account_id}:parameter/salsify/gifmachine/*"
       ]
+    },
+    {
+      "Sid": "ECRPermissions",
+      "Effect": "Allow",
+      "Action": [
+        "ecr:DescribeImageScanFindings",
+        "ecr:GetLifecyclePolicyPreview",
+        "ecr:GetDownloadUrlForLayer",
+        "ecr:BatchGetImage",
+        "ecr:DescribeImages",
+        "ecr:GetAuthorizationToken",
+        "ecr:DescribeRepositories",
+        "ecr:ListTagsForResource",
+        "ecr:ListImages",
+        "ecr:BatchCheckLayerAvailability",
+        "ecr:GetRepositoryPolicy",
+        "ecr:GetLifecyclePolicy"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "LogPermissions",
+      "Effect": "Allow",
+      "Action": [
+        "logs:PutLogEvents",
+        "logs:CreateLogStream"
+      ],
+      "Resource": "*"
     }
   ]
 }
