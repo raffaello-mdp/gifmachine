@@ -1,4 +1,4 @@
 development:
   adapter: postgresql
   database: gifmachine
-  host: localhost
+  host: gifmachine-db

@@ -1,0 +1,40 @@
+version: '3.7'
+
+services:
+
+  api:
+    build:
+      context: .
+      dockerfile: build/api/Dockerfile
+    container_name: gifmachine-api
+    environment:
+      - RACK_ENV=development
+      - GIFMACHINE_PASSWORD=gifMagic
+      - DATABASE_URL=postgres://postgres:postgres@gifmachine-db:5432/gifmachine
+    ports:
+      - 8080:80
+    networks:
+      - gifmachine-network
+    depends_on:
+      - db
+
+  db:
+    image: postgres:12.2-alpine
+    container_name: gifmachine-db
+    volumes:
+      - "gifmachine-db:/var/lib/postgresql/data/"
+    ports:
+      - 5432:5432
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: gifmachine
+    networks:
+      - gifmachine-network
+
+networks:
+  gifmachine-network:
+
+volumes:
+  gifmachine-db:

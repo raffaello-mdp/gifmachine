@@ -1,0 +1,10 @@
+# build and deploy
+docker-compose.yaml
+Makefile
+build/infra
+Dockerfile
+
+# versioning
+.gitignore
+.git
+README.md
