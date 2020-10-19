@@ -1,0 +1,29 @@
+[
+  {
+    "name": "${service_name}-api",
+    "essential": true,
+    "image": "${service_image}",
+    "cpu": 0,
+    "memoryReservation": 64,
+    "portMappings": [
+      {
+        "containerPort": 80
+      }
+    ],
+    "environment": [
+      {
+        "name": "AWS_CLOUD",
+        "value": "true"
+      }
+    ],
+    "command": [],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "${log_group}",
+        "awslogs-region": "${region}",
+        "awslogs-stream-prefix": "${service_name}"
+      }
+    }
+  }
+]
