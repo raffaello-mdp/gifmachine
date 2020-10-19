@@ -39,3 +39,7 @@ data "aws_ecs_cluster" "cluster" {
 data "aws_iam_role" "ecs_alb_support" {
   name = "AWSServiceRoleForECS"
 }
+
+data "aws_iam_role" "salsify_gifmachine_role" {
+  name = "SalsifyGifmachineRole"
+}

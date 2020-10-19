@@ -16,6 +16,7 @@ resource "aws_ecs_task_definition" "task_definition" {
   family                = var.service_name
   network_mode          = "bridge"
   container_definitions = data.template_file.containers_definition.rendered
+  execution_role_arn    = data.aws_iam_role.salsify_gifmachine_role.arn
 
   lifecycle {
     ignore_changes = [container_definitions]
