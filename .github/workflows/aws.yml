@@ -1,6 +1,7 @@
 on:
-  release:
-    types: [created, edited, published]
+  push:
+    branches:
+      - master
 
 name: Deploy to Amazon ECS
 
