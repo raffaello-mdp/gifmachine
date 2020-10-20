@@ -9,7 +9,7 @@ services:
     container_name: gifmachine-api
     environment:
       - RACK_ENV=development
-      - GIFMACHINE_PASSWORD=gifMagic
+      - GIFMACHINE_PASSWORD=gif-magic
       - DATABASE_URL=postgres://postgres:postgres@gifmachine-db:5432/gifmachine
     ports:
       - 8080:80
