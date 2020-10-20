@@ -6,6 +6,9 @@ require 'will_paginate'
 require 'will_paginate/active_record'
 require './models/gif'
 
+set :port, 80
+set :bind, '0.0.0.0'
+
 set :server, 'thin'
 set :sockets, []
 set :logger, Logger.new(STDOUT)
@@ -17,6 +20,11 @@ end
 
 # websockets ftw
 get '/' do
+  if request.env['HTTP_CONNECTION']
+    request.env['HTTP_CONNECTION'] = request.env['HTTP_CONNECTION'].capitalize
+  end
+  logger.info JSON.pretty_generate(request.env)
+
   if !request.websocket?
     send_file 'public/index.html'
   else
