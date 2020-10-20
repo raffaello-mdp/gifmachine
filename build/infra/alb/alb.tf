@@ -8,7 +8,7 @@ resource "aws_security_group" "allow_http" {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = [data.aws_vpc.main.cidr_block]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
@@ -16,7 +16,7 @@ resource "aws_security_group" "allow_http" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = [data.aws_vpc.main.cidr_block]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
@@ -39,7 +39,8 @@ module "public" {
 
   name = var.name
 
-  load_balancer_type = "application"
+  load_balancer_type         = "application"
+  enable_deletion_protection = true
 
   vpc_id          = data.aws_vpc.main.id
   subnets         = data.aws_subnet_ids.public.ids

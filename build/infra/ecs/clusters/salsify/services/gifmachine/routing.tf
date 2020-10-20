@@ -25,6 +25,12 @@ resource "aws_alb_target_group" "service_target_group" {
     healthy_threshold = 3
   }
 
+  stickiness {
+    cookie_duration = 86400
+    enabled         = true
+    type            = "lb_cookie"
+  }
+
   tags = {
     Name      = var.service_name
     Tier      = "salsify"

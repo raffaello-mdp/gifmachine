@@ -18,9 +18,9 @@ resource "aws_ecs_task_definition" "task_definition" {
   container_definitions = data.template_file.containers_definition.rendered
   execution_role_arn    = data.aws_iam_role.salsify_gifmachine_role.arn
 
-  lifecycle {
-    ignore_changes = [container_definitions]
-  }
+  # lifecycle {
+  #   ignore_changes = [container_definitions]
+  # }
 }
 
 resource "aws_ecs_service" "service" {
